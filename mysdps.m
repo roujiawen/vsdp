@@ -362,7 +362,7 @@ elseif any(solverID==8) && exist('mosekopt','file')==3%MEX-file
     end
     
     % use starting point ?
-    if ~useSTART || isempty(x0)
+    if useSTART && ~isempty(x0)
         OPTIONS.MSK_IPAR_INTPNT_STARTING_POINT = x0;
     end
     
