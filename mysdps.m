@@ -361,11 +361,6 @@ elseif any(solverID==8) && exist('mosekopt','file')==3%MEX-file
         error('VSDP:MYSDPS','Second order and semidefinite cones are not supported by MOSEK');
     end
     
-    % use starting point ?
-    if useSTART && ~isempty(x0)
-        OPTIONS.MSK_IPAR_INTPNT_STARTING_POINT = x0;
-    end
-    
     % call mosek solver [with intial point]
     mosek_prob = struct();
     mosek_prob.c = full(c);
